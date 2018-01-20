@@ -95,10 +95,113 @@ namespace CharCreator
     }
     #endregion
 
+    #region OverlayData Class
+    public class OverlayData
+    {
+        public int Gender;
+        public int HairID;
+        public int Collection;
+        public int Overlay;
+
+        public OverlayData(int gender, int hairID, string collection, string overlay)
+        {
+            Gender = gender;
+            HairID = hairID;
+            Collection = API.shared.getHashKey(collection);
+            Overlay = API.shared.getHashKey(overlay);
+        }
+    }
+    #endregion
+
     public class Main : Script
     {
         public string SAVE_DIRECTORY = "CustomCharacters";
         public Dictionary<NetHandle, PlayerCustomization> CustomPlayerData = new Dictionary<NetHandle, PlayerCustomization>();
+
+        public List<OverlayData> HairOverlays = new List<OverlayData>
+        {
+            // Male
+            new OverlayData(0, 0, "mpbeach_overlays", "FM_Hair_Fuzz"),
+            new OverlayData(0, 1, "multiplayer_overlays", "NG_M_Hair_001"),
+            new OverlayData(0, 2, "multiplayer_overlays", "NG_M_Hair_002"),
+            new OverlayData(0, 3, "multiplayer_overlays", "NG_M_Hair_003"),
+            new OverlayData(0, 4, "multiplayer_overlays", "NG_M_Hair_004"),
+            new OverlayData(0, 5, "multiplayer_overlays", "NG_M_Hair_005"),
+            new OverlayData(0, 6, "multiplayer_overlays", "NG_M_Hair_006"),
+            new OverlayData(0, 7, "multiplayer_overlays", "NG_M_Hair_007"),
+            new OverlayData(0, 8, "multiplayer_overlays", "NG_M_Hair_008"),
+            new OverlayData(0, 9, "multiplayer_overlays", "NG_M_Hair_009"),
+            new OverlayData(0, 10, "multiplayer_overlays", "NG_M_Hair_013"),
+            new OverlayData(0, 11, "multiplayer_overlays", "NG_M_Hair_002"),
+            new OverlayData(0, 12, "multiplayer_overlays", "NG_M_Hair_011"),
+            new OverlayData(0, 13, "multiplayer_overlays", "NG_M_Hair_012"),
+            new OverlayData(0, 14, "multiplayer_overlays", "NG_M_Hair_014"),
+            new OverlayData(0, 15, "multiplayer_overlays", "NG_M_Hair_015"),
+            new OverlayData(0, 16, "multiplayer_overlays", "NGBea_M_Hair_000"),
+            new OverlayData(0, 17, "multiplayer_overlays", "NGBea_M_Hair_001"),
+            new OverlayData(0, 18, "multiplayer_overlays", "NGBus_M_Hair_000"),
+            new OverlayData(0, 19, "multiplayer_overlays", "NGBus_M_Hair_001"),
+            new OverlayData(0, 20, "multiplayer_overlays", "NGHip_M_Hair_000"),
+            new OverlayData(0, 21, "multiplayer_overlays", "NGHip_M_Hair_001"),
+            new OverlayData(0, 22, "multiplayer_overlays", "NGInd_M_Hair_000"),
+            new OverlayData(0, 24, "mplowrider_overlays", "LR_M_Hair_000"),
+            new OverlayData(0, 25, "mplowrider_overlays", "LR_M_Hair_001"),
+            new OverlayData(0, 26, "mplowrider_overlays", "LR_M_Hair_002"),
+            new OverlayData(0, 27, "mplowrider_overlays", "LR_M_Hair_003"),
+            new OverlayData(0, 28, "mplowrider2_overlays", "LR_M_Hair_004"),
+            new OverlayData(0, 29, "mplowrider2_overlays", "LR_M_Hair_005"),
+            new OverlayData(0, 30, "mplowrider2_overlays", "LR_M_Hair_006"),
+            new OverlayData(0, 31, "mpbiker_overlays", "MP_Biker_Hair_000_M"),
+            new OverlayData(0, 32, "mpbiker_overlays", "MP_Biker_Hair_001_M"),
+            new OverlayData(0, 33, "mpbiker_overlays", "MP_Biker_Hair_002_M"),
+            new OverlayData(0, 34, "mpbiker_overlays", "MP_Biker_Hair_003_M"),
+            new OverlayData(0, 35, "mpbiker_overlays", "MP_Biker_Hair_004_M"),
+            new OverlayData(0, 36, "mpbiker_overlays", "MP_Biker_Hair_005_M"),
+            new OverlayData(0, 72, "mpgunrunning_overlays", "MP_Gunrunning_Hair_M_000_M"),
+            new OverlayData(0, 73, "mpgunrunning_overlays", "MP_Gunrunning_Hair_M_001_M"),
+
+            // Female
+            new OverlayData(1, 0, "mpbeach_overlays", "FM_Hair_Fuzz"),
+            new OverlayData(1, 1, "multiplayer_overlays", "NG_F_Hair_001"),
+            new OverlayData(1, 2, "multiplayer_overlays", "NG_F_Hair_002"),
+            new OverlayData(1, 3, "multiplayer_overlays", "NG_F_Hair_003"),
+            new OverlayData(1, 4, "multiplayer_overlays", "NG_F_Hair_004"),
+            new OverlayData(1, 5, "multiplayer_overlays", "NG_F_Hair_005"),
+            new OverlayData(1, 6, "multiplayer_overlays", "NG_F_Hair_006"),
+            new OverlayData(1, 7, "multiplayer_overlays", "NG_F_Hair_007"),
+            new OverlayData(1, 8, "multiplayer_overlays", "NG_F_Hair_008"),
+            new OverlayData(1, 9, "multiplayer_overlays", "NG_F_Hair_009"),
+            new OverlayData(1, 10, "multiplayer_overlays", "NG_F_Hair_010"),
+            new OverlayData(1, 11, "multiplayer_overlays", "NG_F_Hair_011"),
+            new OverlayData(1, 12, "multiplayer_overlays", "NG_F_Hair_012"),
+            new OverlayData(1, 13, "multiplayer_overlays", "NG_F_Hair_013"),
+            new OverlayData(1, 14, "multiplayer_overlays", "NG_M_Hair_014"),
+            new OverlayData(1, 15, "multiplayer_overlays", "NG_M_Hair_015"),
+            new OverlayData(1, 16, "multiplayer_overlays", "NGBea_F_Hair_000"),
+            new OverlayData(1, 17, "multiplayer_overlays", "NGBea_F_Hair_001"),
+            new OverlayData(1, 18, "multiplayer_overlays", "NG_F_Hair_007"),
+            new OverlayData(1, 19, "multiplayer_overlays", "NGBus_F_Hair_000"),
+            new OverlayData(1, 20, "multiplayer_overlays", "NGBus_F_Hair_001"),
+            new OverlayData(1, 21, "multiplayer_overlays", "NGBea_F_Hair_001"),
+            new OverlayData(1, 22, "multiplayer_overlays", "NGHip_F_Hair_000"),
+            new OverlayData(1, 23, "multiplayer_overlays", "NGInd_F_Hair_000"),
+            new OverlayData(1, 25, "mplowrider_overlays", "LR_F_Hair_000"),
+            new OverlayData(1, 26, "mplowrider_overlays", "LR_F_Hair_001"),
+            new OverlayData(1, 27, "mplowrider_overlays", "LR_F_Hair_002"),
+            new OverlayData(1, 28, "mplowrider2_overlays", "LR_F_Hair_003"),
+            new OverlayData(1, 29, "mplowrider2_overlays", "LR_F_Hair_003"),
+            new OverlayData(1, 30, "mplowrider2_overlays", "LR_F_Hair_004"),
+            new OverlayData(1, 31, "mplowrider2_overlays", "LR_F_Hair_006"),
+            new OverlayData(1, 32, "mpbiker_overlays", "MP_Biker_Hair_000_F"),
+            new OverlayData(1, 33, "mpbiker_overlays", "MP_Biker_Hair_001_F"),
+            new OverlayData(1, 34, "mpbiker_overlays", "MP_Biker_Hair_002_F"),
+            new OverlayData(1, 35, "mpbiker_overlays", "MP_Biker_Hair_003_F"),
+            new OverlayData(1, 36, "multiplayer_overlays", "NG_F_Hair_003"),
+            new OverlayData(1, 37, "mpbiker_overlays", "MP_Biker_Hair_006_F"),
+            new OverlayData(1, 38, "mpbiker_overlays", "MP_Biker_Hair_004_F"),
+            new OverlayData(1, 76, "mpgunrunning_overlays", "MP_Gunrunning_Hair_F_000_F"),
+            new OverlayData(1, 77, "mpgunrunning_overlays", "MP_Gunrunning_Hair_F_001_F")
+        };
 
         public Vector3 CreatorCharPos = new Vector3(402.8664, -996.4108, -99.00027);
         public Vector3 CreatorPos = new Vector3(402.8664, -997.5515, -98.5);
@@ -176,6 +279,11 @@ namespace CharCreator
             API.sendNativeToAllPlayers(Hash._SET_PED_HEAD_OVERLAY_COLOR, player.handle, 10, 1, CustomPlayerData[player.handle].ChestHairColor, 0);
 
             player.setSyncedData("CustomCharacter", API.toJson(CustomPlayerData[player.handle]));
+
+            // apply hair decal
+            OverlayData decal = HairOverlays.Find(h => h.Gender == CustomPlayerData[player.handle].Gender && h.HairID == CustomPlayerData[player.handle].Hair.Hair);
+            API.sendNativeToAllPlayers(Hash._CLEAR_PED_FACIAL_DECORATIONS, player.handle);
+            API.sendNativeToAllPlayers(Hash._SET_PED_FACIAL_DECORATION, player.handle, decal.Collection, decal.Overlay);
         }
 
         public void SaveCharacter(Client player)

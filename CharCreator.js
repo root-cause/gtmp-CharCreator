@@ -60,9 +60,96 @@ var hairIDList = [
 
 var hairNameList = [
     // male
-    ["None", "Buzzcut", "Faux Hawk", "Hipster", "Side Parting", "Shorter Cut", "Biker", "Ponytail", "Cornrows", "Slicked", "Short Brushed", "Spikey", "Caesar", "Chopped", "Dreads", "Long Hair", "Shaggy Curls", "Surfer Dude", "Short Side Part", "High Slicked Sides", "Long Slicked", "Hipster Youth", "Mullet", "Classic Cornrows", "Palm Cornrows", "Lightning Cornrows", "Whipped Cornrows", "Zig Zag Cornrows", "Snail Cornrows", "Hightop", "Loose Swept Back", "Undercut Swept Back", "Undercut Swept Side", "Spiked Mohawk", "Mod", "Layered Mod", "Flattop", "Military Buzzcut"],
+    ["Close Shave", "Buzzcut", "Faux Hawk", "Hipster", "Side Parting", "Shorter Cut", "Biker", "Ponytail", "Cornrows", "Slicked", "Short Brushed", "Spikey", "Caesar", "Chopped", "Dreads", "Long Hair", "Shaggy Curls", "Surfer Dude", "Short Side Part", "High Slicked Sides", "Long Slicked", "Hipster Youth", "Mullet", "Classic Cornrows", "Palm Cornrows", "Lightning Cornrows", "Whipped Cornrows", "Zig Zag Cornrows", "Snail Cornrows", "Hightop", "Loose Swept Back", "Undercut Swept Back", "Undercut Swept Side", "Spiked Mohawk", "Mod", "Layered Mod", "Flattop", "Military Buzzcut"],
     // female
-    ["None", "Short", "Layered Bob", "Pigtails", "Ponytail", "Braided Mohawk", "Braids", "Bob", "Faux Hawk", "French Twist", "Long Bob", "Loose Tied", "Pixie", "Shaved Bangs", "Top Knot", "Wavy Bob", "Messy Bun", "Pin Up Girl", "Tight Bun", "Twisted Bob", "Flapper Bob", "Big Bangs", "Braided Top Knot", "Mullet", "Pinched Cornrows", "Leaf Cornrows", "Zig Zag Cornrows", "Pigtail Bangs", "Wave Braids", "Coil Braids", "Rolled Quiff", "Loose Swept Back", "Undercut Swept Back", "Undercut Swept Side", "Spiked Mohawk", "Bandana and Braid", "Layered Mod", "Skinbyrd", "Neat Bun", "Short Bob"]
+    ["Close Shave", "Short", "Layered Bob", "Pigtails", "Ponytail", "Braided Mohawk", "Braids", "Bob", "Faux Hawk", "French Twist", "Long Bob", "Loose Tied", "Pixie", "Shaved Bangs", "Top Knot", "Wavy Bob", "Messy Bun", "Pin Up Girl", "Tight Bun", "Twisted Bob", "Flapper Bob", "Big Bangs", "Braided Top Knot", "Mullet", "Pinched Cornrows", "Leaf Cornrows", "Zig Zag Cornrows", "Pigtail Bangs", "Wave Braids", "Coil Braids", "Rolled Quiff", "Loose Swept Back", "Undercut Swept Back", "Undercut Swept Side", "Spiked Mohawk", "Bandana and Braid", "Layered Mod", "Skinbyrd", "Neat Bun", "Short Bob"]
+];
+
+var hairDecalsList = [
+    // male
+    [
+        {ID: 0, Collection: "mpbeach_overlays", Overlay: "FM_Hair_Fuzz"},
+        {ID: 1, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_001"},
+        {ID: 2, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_002"},
+        {ID: 3, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_003"},
+        {ID: 4, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_004"},
+        {ID: 5, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_005"},
+        {ID: 6, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_006"},
+        {ID: 7, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_007"},
+        {ID: 8, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_008"},
+        {ID: 9, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_009"},
+        {ID: 10, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_013"},
+        {ID: 11, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_002"},
+        {ID: 12, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_011"},
+        {ID: 13, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_012"},
+        {ID: 14, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_014"},
+        {ID: 15, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_015"},
+        {ID: 16, Collection: "multiplayer_overlays", Overlay: "NGBea_M_Hair_000"},
+        {ID: 17, Collection: "multiplayer_overlays", Overlay: "NGBea_M_Hair_001"},
+        {ID: 18, Collection: "multiplayer_overlays", Overlay: "NGBus_M_Hair_000"},
+        {ID: 19, Collection: "multiplayer_overlays", Overlay: "NGBus_M_Hair_001"},
+        {ID: 20, Collection: "multiplayer_overlays", Overlay: "NGHip_M_Hair_000"},
+        {ID: 21, Collection: "multiplayer_overlays", Overlay: "NGHip_M_Hair_001"},
+        {ID: 22, Collection: "multiplayer_overlays", Overlay: "NGInd_M_Hair_000"},
+        {ID: 24, Collection: "mplowrider_overlays", Overlay: "LR_M_Hair_000"},
+        {ID: 25, Collection: "mplowrider_overlays", Overlay: "LR_M_Hair_001"},
+        {ID: 26, Collection: "mplowrider_overlays", Overlay: "LR_M_Hair_002"},
+        {ID: 27, Collection: "mplowrider_overlays", Overlay: "LR_M_Hair_003"},
+        {ID: 28, Collection: "mplowrider2_overlays", Overlay: "LR_M_Hair_004"},
+        {ID: 29, Collection: "mplowrider2_overlays", Overlay: "LR_M_Hair_005"},
+        {ID: 30, Collection: "mplowrider2_overlays", Overlay: "LR_M_Hair_006"},
+        {ID: 31, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_000_M"},
+        {ID: 32, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_001_M"},
+        {ID: 33, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_002_M"},
+        {ID: 34, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_003_M"},
+        {ID: 35, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_004_M"},
+        {ID: 36, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_005_M"},
+        {ID: 72, Collection: "mpgunrunning_overlays", Overlay: "MP_Gunrunning_Hair_M_000_M"},
+        {ID: 73, Collection: "mpgunrunning_overlays", Overlay: "MP_Gunrunning_Hair_M_001_M"}
+    ],
+    // female
+    [
+        {ID: 0, Collection: "mpbeach_overlays", Overlay: "FM_Hair_Fuzz"},
+        {ID: 1, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_001"},
+        {ID: 2, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_002"},
+        {ID: 3, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_003"},
+        {ID: 4, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_004"},
+        {ID: 5, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_005"},
+        {ID: 6, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_006"},
+        {ID: 7, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_007"},
+        {ID: 8, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_008"},
+        {ID: 9, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_009"},
+        {ID: 10, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_010"},
+        {ID: 11, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_011"},
+        {ID: 12, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_012"},
+        {ID: 13, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_013"},
+        {ID: 14, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_014"},
+        {ID: 15, Collection: "multiplayer_overlays", Overlay: "NG_M_Hair_015"},
+        {ID: 16, Collection: "multiplayer_overlays", Overlay: "NGBea_F_Hair_000"},
+        {ID: 17, Collection: "multiplayer_overlays", Overlay: "NGBea_F_Hair_001"},
+        {ID: 18, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_007"},
+        {ID: 19, Collection: "multiplayer_overlays", Overlay: "NGBus_F_Hair_000"},
+        {ID: 20, Collection: "multiplayer_overlays", Overlay: "NGBus_F_Hair_001"},
+        {ID: 21, Collection: "multiplayer_overlays", Overlay: "NGBea_F_Hair_001"},
+        {ID: 22, Collection: "multiplayer_overlays", Overlay: "NGHip_F_Hair_000"},
+        {ID: 23, Collection: "multiplayer_overlays", Overlay: "NGInd_F_Hair_000"},
+        {ID: 25, Collection: "mplowrider_overlays", Overlay: "LR_F_Hair_000"},
+        {ID: 26, Collection: "mplowrider_overlays", Overlay: "LR_F_Hair_001"},
+        {ID: 27, Collection: "mplowrider_overlays", Overlay: "LR_F_Hair_002"},
+        {ID: 28, Collection: "mplowrider2_overlays", Overlay: "LR_F_Hair_003"},
+        {ID: 29, Collection: "mplowrider2_overlays", Overlay: "LR_F_Hair_003"},
+        {ID: 30, Collection: "mplowrider2_overlays", Overlay: "LR_F_Hair_004"},
+        {ID: 31, Collection: "mplowrider2_overlays", Overlay: "LR_F_Hair_006"},
+        {ID: 32, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_000_F"},
+        {ID: 33, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_001_F"},
+        {ID: 34, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_002_F"},
+        {ID: 35, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_003_F"},
+        {ID: 36, Collection: "multiplayer_overlays", Overlay: "NG_F_Hair_003"},
+        {ID: 37, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_006_F"},
+        {ID: 38, Collection: "mpbiker_overlays", Overlay: "MP_Biker_Hair_004_F"},
+        {ID: 76, Collection: "mpgunrunning_overlays", Overlay: "MP_Gunrunning_Hair_F_000_F"},
+        {ID: 77, Collection: "mpgunrunning_overlays", Overlay: "MP_Gunrunning_Hair_F_001_F"}
+    ]
 ];
 
 var eyeColors = ["Green", "Emerald", "Light Blue", "Ocean Blue", "Light Brown", "Dark Brown", "Hazel", "Dark Gray", "Light Gray", "Pink", "Yellow", "Purple", "Blackout", "Shades of Gray", "Tequila Sunrise", "Atomic", "Warp", "ECola", "Space Ranger", "Ying Yang", "Bullseye", "Lizard", "Dragon", "Extra Terrestrial", "Goat", "Smiley", "Possessed", "Demon", "Infected", "Alien", "Undead", "Zombie"];
@@ -166,10 +253,11 @@ function updateCharacterAppearance(index) {
     API.setPlayerHeadOverlay(API.getLocalPlayer(), index, overlay_id, creatorAppearanceOpacityItems[index].Index * 0.01);
 }
 
-function updateCharacterHairAndColors(idx) {
+function updateCharacterHairAndColors() {
     // hair
-    API.setPlayerClothes(API.getLocalPlayer(), 2, hairIDList[currentGender][hairItem.Index], 0);
-    API.setPlayerHairColor(API.getLocalPlayer(), hairColorItem.Index, hairHighlightItem.Index);
+    var hairDecal = hairDecalsList[currentGender].find(h => h.ID == hairIDList[currentGender][hairItem.Index]);
+    API.clearPlayerFacialDecorations(API.getLocalPlayer());
+    API.setPlayerHairStyle(API.getLocalPlayer(), hairIDList[currentGender][hairItem.Index], hairColorItem.Index, hairHighlightItem.Index, hairDecal.Collection, hairDecal.Overlay);
 
     // appearance colors
     API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 2, 1, eyebrowColorItem.Index, 0);
@@ -583,7 +671,7 @@ API.onResourceStart.connect(function() {
                 break;
 
                 case 2:
-                    API.setPlayerHairColor(API.getLocalPlayer(), hairColorItem.Index, 0);
+                    API.setPlayerHairColor(API.getLocalPlayer(), hairColorItem.Index, index);
                 break;
 
                 case 3:
@@ -611,7 +699,9 @@ API.onResourceStart.connect(function() {
                 break;
             }
         } else {
-            API.setPlayerClothes(API.getLocalPlayer(), 2, hairIDList[currentGender][index], 0);
+            var hairDecal = hairDecalsList[currentGender].find(h => h.ID == hairIDList[currentGender][index]);
+            API.clearPlayerFacialDecorations(API.getLocalPlayer());
+            API.setPlayerHairStyle(API.getLocalPlayer(), hairIDList[currentGender][index], hairColorItem.Index, hairHighlightItem.Index, hairDecal.Collection, hairDecal.Overlay);
         }
     });
 
@@ -668,8 +758,12 @@ API.onEntityStreamIn.connect(function(ent, entType) {
         for (var i = 0; i < data.Features.length; i++) API.setPlayerFaceFeature(ent, i, data.Features[i]);
         for (var i = 0; i < data.Appearance.length; i++) API.setPlayerHeadOverlay(ent, i, data.Appearance[i].Value, data.Appearance[i].Opacity);
 
-        API.setPlayerHairColor(ent, data.Hair.Color, data.Hair.HighlightColor);
+        // hair
+        var hairDecal = hairDecalsList[data.Gender].find(h => h.ID == data.Hair.Hair);
+        API.clearPlayerFacialDecorations(ent);
+        API.setPlayerHairStyle(ent, data.Hair.Hair, data.Hair.Color, data.Hair.HighlightColor, hairDecal.Collection, hairDecal.Overlay);
 
+        // colors
         API.setPlayerHeadOverlayColor(ent, 1, 1, data.BeardColor, 0);
         API.setPlayerHeadOverlayColor(ent, 2, 1, data.EyebrowColor, 0);
         API.setPlayerHeadOverlayColor(ent, 5, 2, data.BlushColor, 0);
