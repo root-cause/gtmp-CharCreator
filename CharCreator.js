@@ -761,7 +761,7 @@ API.onEntityStreamIn.connect(function(ent, entType) {
         // hair
         var hairDecal = hairDecalsList[data.Gender].find(h => h.ID == data.Hair.Hair);
         API.clearPlayerFacialDecorations(ent);
-        API.setPlayerHairStyle(ent, data.Hair.Hair, data.Hair.Color, data.Hair.HighlightColor, hairDecal.Collection, hairDecal.Overlay);
+        API.setPlayerFacialDecoration(ent, hairDecal.Collection, hairDecal.Overlay);
 
         // colors
         API.setPlayerHeadOverlayColor(ent, 1, 1, data.BeardColor, 0);
@@ -769,7 +769,7 @@ API.onEntityStreamIn.connect(function(ent, entType) {
         API.setPlayerHeadOverlayColor(ent, 5, 2, data.BlushColor, 0);
         API.setPlayerHeadOverlayColor(ent, 8, 2, data.LipstickColor, 0);
         API.setPlayerHeadOverlayColor(ent, 10, 1, data.ChestHairColor, 0);
-
+        API.setPlayerHairColor(ent, data.Hair.Color, data.Hair.HighlightColor);
         API.setPlayerEyeColor(ent, data.EyeColor);
     }
 });
