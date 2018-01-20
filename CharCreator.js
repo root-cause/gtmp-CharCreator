@@ -140,7 +140,7 @@ function resetHairColorsMenu(clear_idx) {
 function updateCharacterParents() {
     API.setPlayerHeadBlendData(
         API.getLocalPlayer(),
-    
+
         mothers[ motherItem.Index ],
         fathers[ fatherItem.Index ],
         0,
@@ -170,14 +170,14 @@ function updateCharacterHairAndColors(idx) {
     // hair
     API.setPlayerClothes(API.getLocalPlayer(), 2, hairIDList[currentGender][hairItem.Index], 0);
     API.setPlayerHairColor(API.getLocalPlayer(), hairColorItem.Index, hairHighlightItem.Index);
-    
+
     // appearance colors
-    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 2, 1, eyebrowColorItem.Index, creatorAppearanceOpacityItems[2].Index * 0.01);
-    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 1, 1, beardColorItem.Index, creatorAppearanceOpacityItems[1].Index * 0.01);
-    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 5, 2, blushColorItem.Index, creatorAppearanceOpacityItems[5].Index * 0.01);
-    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 8, 2, lipstickColorItem.Index, creatorAppearanceOpacityItems[8].Index * 0.01);
-    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 10, 1, chestHairColorItem.Index, creatorAppearanceOpacityItems[10].Index * 0.01);
-    
+    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 2, 1, eyebrowColorItem.Index, 0);
+    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 1, 1, beardColorItem.Index, 0);
+    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 5, 2, blushColorItem.Index, 0);
+    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 8, 2, lipstickColorItem.Index, 0);
+    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 10, 1, chestHairColorItem.Index, 0);
+
     // eye color
     API.setPlayerEyeColor(API.getLocalPlayer(), eyeColorItem.Index);
 }
@@ -263,7 +263,7 @@ API.onResourceStart.connect(function() {
         API.callNative("CLEAR_PED_TASKS_IMMEDIATELY", API.getLocalPlayer());
 
         angleItem.Index = 36;
-        
+
         resetParentsMenu(true);
         resetFeaturesMenu(true);
         resetAppearanceMenu(true);
@@ -552,7 +552,7 @@ API.onResourceStart.connect(function() {
 
         var appearance_values = [];
         for (var i = 0; i < appearanceNames.length; i++) appearance_values.push({ Value: ((creatorAppearanceItems[i].Index == 0) ? 255 : creatorAppearanceItems[i].Index - 1), Opacity: creatorAppearanceOpacityItems[i].Index * 0.01 });
-    
+
         var hair_or_colors = [];
         hair_or_colors.push(hairIDList[currentGender][hairItem.Index]);
         hair_or_colors.push(hairColorItem.Index);
@@ -563,7 +563,7 @@ API.onResourceStart.connect(function() {
         hair_or_colors.push(blushColorItem.Index);
         hair_or_colors.push(lipstickColorItem.Index);
         hair_or_colors.push(chestHairColorItem.Index);
-        
+
         API.triggerServerEvent("SaveCharacter", currentGender, fathers[ fatherItem.Index ], mothers[ motherItem.Index ], similarityItem.Index * 0.01, skinSimilarityItem.Index * 0.01, JSON.stringify(feature_values), JSON.stringify(appearance_values), JSON.stringify(hair_or_colors));
     });
 
@@ -583,15 +583,15 @@ API.onResourceStart.connect(function() {
                 break;
 
                 case 2:
-                    API.setPlayerHairColor(API.getLocalPlayer(), hairColorItem.Index, index);
+                    API.setPlayerHairColor(API.getLocalPlayer(), hairColorItem.Index, 0);
                 break;
 
                 case 3:
-                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 2, 1, index, creatorAppearanceOpacityItems[2].Index * 0.01);
+                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 2, 1, index, 0);
                 break;
 
                 case 4:
-                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 1, 1, index, creatorAppearanceOpacityItems[1].Index * 0.01);
+                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 1, 1, index, 0);
                 break;
 
                 case 5:
@@ -599,15 +599,15 @@ API.onResourceStart.connect(function() {
                 break;
 
                 case 6:
-                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 5, 2, index, creatorAppearanceOpacityItems[5].Index * 0.01);
+                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 5, 2, index, 0);
                 break;
 
                 case 7:
-                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 8, 2, index, creatorAppearanceOpacityItems[8].Index * 0.01);
+                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 8, 2, index, 0);
                 break;
 
                 case 8:
-                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 10, 1, index, creatorAppearanceOpacityItems[10].Index * 0.01);
+                    API.setPlayerHeadOverlayColor(API.getLocalPlayer(), 10, 1, index, 0);
                 break;
             }
         } else {
@@ -653,28 +653,28 @@ API.onEntityStreamIn.connect(function(ent, entType) {
             data.Parents.Mother,
             data.Parents.Father,
             0,
-        
+
             data.Parents.Mother,
             data.Parents.Father,
             0,
-            
+
             data.Parents.Similarity,
             data.Parents.SkinSimilarity,
             0.0,
 
             false
         );
-        
+
         for (var i = 0; i < data.Features.length; i++) API.setPlayerFaceFeature(ent, i, data.Features[i]);
         for (var i = 0; i < data.Appearance.length; i++) API.setPlayerHeadOverlay(ent, i, data.Appearance[i].Value, data.Appearance[i].Opacity);
-        
+
         API.setPlayerHairColor(ent, data.Hair.Color, data.Hair.HighlightColor);
 
-        API.setPlayerHeadOverlayColor(ent, 1, 1, data.BeardColor, data.Appearance[1].Opacity);
-        API.setPlayerHeadOverlayColor(ent, 2, 1, data.EyebrowColor, data.Appearance[2].Opacity);
-        API.setPlayerHeadOverlayColor(ent, 5, 2, data.BlushColor, data.Appearance[5].Opacity);
-        API.setPlayerHeadOverlayColor(ent, 8, 2, data.LipstickColor, data.Appearance[8].Opacity);
-        API.setPlayerHeadOverlayColor(ent, 10, 1, data.ChestHairColor, data.Appearance[10].Opacity);
+        API.setPlayerHeadOverlayColor(ent, 1, 1, data.BeardColor, 0);
+        API.setPlayerHeadOverlayColor(ent, 2, 1, data.EyebrowColor, 0);
+        API.setPlayerHeadOverlayColor(ent, 5, 2, data.BlushColor, 0);
+        API.setPlayerHeadOverlayColor(ent, 8, 2, data.LipstickColor, 0);
+        API.setPlayerHeadOverlayColor(ent, 10, 1, data.ChestHairColor, 0);
 
         API.setPlayerEyeColor(ent, data.EyeColor);
     }
